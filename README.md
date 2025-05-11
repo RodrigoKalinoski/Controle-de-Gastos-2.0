@@ -33,12 +33,8 @@ Aplicativo mobile minimalista feito em **React Native com Expo**, que permite:
 ## 🧪 Como rodar o projeto
 
 ```bash
-# 1. Clone o repositório
-git clone https://github.com/seu-usuario/gastos-app.git
-cd gastos-app
-
-# 2. Instale as dependências
+# 1 Instale as dependências
 npm install
 
-# 3. Crie um arquivo .env com as suas credenciais do Firebase
+# 2. Crie um arquivo .env com as suas credenciais do Firebase
 cp .env.example .env
