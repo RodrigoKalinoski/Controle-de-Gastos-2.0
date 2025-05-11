@@ -39,7 +39,9 @@ npm install
 # 2. Crie um arquivo .env com as suas credenciais do Firebase
 cp .env.example .env
 
-🔥 **Configurar Firebase**
+```
+
+## 🔥 Configurar Firebase
 
 1. Crie um novo projeto no [Firebase](https://console.firebase.google.com/)
 2. Vá em **Authentication > Sign-in method** e ative **E-mail/senha**
