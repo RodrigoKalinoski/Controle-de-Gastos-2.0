@@ -14,7 +14,6 @@ export default function AddExpenseScreen() {
     const [showPicker, setShowPicker] = useState(false);
     const [loading, setLoading] = useState(false);
 
-
     const handleAdd = async () => {
         if (!description || !value) {
             Alert.alert('Erro', 'Preencha todos os campos');
@@ -36,7 +35,6 @@ export default function AddExpenseScreen() {
         setLoading(true);
 
         try {
-
             await addDoc(collection(db, 'expenses'), {
                 uid: user.uid,
                 description,
@@ -45,13 +43,11 @@ export default function AddExpenseScreen() {
             });
 
             navigation.navigate('Home');
-
         } catch (error) {
             console.log('Erro ao salvar gasto:', error);
             Alert.alert('Erro ao salvar gasto', error.message);
         }
     };
-
 
     const showDatePicker = () => setShowPicker(true);
     const onChangeDate = (_, selectedDate) => {
@@ -67,22 +63,25 @@ export default function AddExpenseScreen() {
             <TextInput
                 style={styles.input}
                 placeholder="Descrição"
+                placeholderTextColor="#aaa"
                 value={description}
                 onChangeText={setDescription}
             />
 
-            <TextInput
-                style={styles.input}
-                placeholder="Valor (ex: 15.90)"
-                value={value}
-                onChangeText={setValue}
-                keyboardType="numeric"
-            />
+            <View style={styles.inputWithSymbol}>
+                <Text style={styles.symbol}>R$</Text>
+                <TextInput
+                    style={styles.valueInput}
+                    placeholder="0,00"
+                    placeholderTextColor="#aaa"
+                    value={value}
+                    onChangeText={setValue}
+                    keyboardType="numeric"
+                />
+            </View>
 
             <TouchableOpacity style={styles.input} onPress={showDatePicker}>
-                <Text style={{ color: '#333' }}>
-                    {date.toLocaleDateString('pt-BR')}
-                </Text>
+                <Text style={{ color: '#f2f2f2' }}>{date.toLocaleDateString('pt-BR')}</Text>
             </TouchableOpacity>
 
             {showPicker && (
@@ -106,32 +105,56 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingHorizontal: 24,
         paddingTop: 48,
-        backgroundColor: '#fff',
+        backgroundColor: '#0d0d0d',
     },
     title: {
         fontSize: 24,
         fontWeight: '600',
+        color: '#fff',
         marginBottom: 24,
     },
     input: {
         height: 48,
-        borderColor: '#ddd',
+        borderColor: '#444',
         borderWidth: 1,
         borderRadius: 8,
         paddingHorizontal: 12,
         justifyContent: 'center',
         marginBottom: 16,
+        backgroundColor: '#1c1c1e',
+        color: '#fff',
+    },
+    inputWithSymbol: {
+        height: 48,
+        flexDirection: 'row',
+        alignItems: 'center',
+        borderWidth: 1,
+        borderColor: '#444',
+        borderRadius: 8,
+        paddingHorizontal: 12,
+        marginBottom: 16,
+        backgroundColor: '#1c1c1e',
+    },
+    symbol: {
+        fontSize: 16,
+        color: '#fff',
+        marginRight: 4,
+    },
+    valueInput: {
+        flex: 1,
+        fontSize: 16,
+        color: '#fff',
     },
     button: {
-        backgroundColor: '#34C759',
+        backgroundColor: '#7b2cbf',
         paddingVertical: 14,
-        borderRadius: 8,
+        borderRadius: 10,
         alignItems: 'center',
         marginTop: 12,
     },
     buttonText: {
         color: '#fff',
-        fontWeight: '500',
+        fontWeight: '600',
         fontSize: 16,
     },
 });

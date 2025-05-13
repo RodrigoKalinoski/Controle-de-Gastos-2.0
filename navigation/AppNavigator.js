@@ -6,7 +6,17 @@ export default function AppNavigator() {
 
     return (
         <Stack.Navigator>
-            <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
+            <Stack.Screen
+                name="Home"
+                component={HomeScreen}
+                options={{ headerShown: true, title: "Gastos" }}
+            />
+            <Stack.Screen
+                name="EditExpense"
+                component={EditExpenseScreen}
+                options={{ headerShown: true, title: "Editar Gasto" }}
+            />
         </Stack.Navigator>
+
     )
 }

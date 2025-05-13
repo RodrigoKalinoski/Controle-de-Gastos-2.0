@@ -1,60 +1,52 @@
-# 📱 GastosApp – Controle de Gastos Pessoais
+# 💸 Controle de Gastos - Aplicativo Mobile
 
-Aplicativo mobile minimalista feito em **React Native com Expo**, que permite:
-
-- Cadastro e login de usuários
-- Registro de gastos com descrição, valor e data
-- Exibição de lista de gastos por data
-- Exibição do total gasto
-- Edição futura e tela de "Minha Conta"
+Aplicativo desenvolvido com **React Native + Firebase** para controle de despesas pessoais.
 
 ---
 
-## 🚀 Tecnologias
+## ✨ Funcionalidades
 
+- 📱 Autenticação com e-mail e senha (Firebase Auth)
+- ➕ Adicionar gastos com valor, descrição e data
+- 📃 Listar gastos ordenados por data
+- ✏️ Editar e excluir gastos
+- 🔍 Filtro por valor e data
+- 👤 Tela de perfil do usuário com opção de redefinir senha
+- 🎨 Interface moderna com tema escuro
+
+---
+
+## 📦 Tecnologias Utilizadas
+
+- [React Native](https://reactnative.dev/)
 - [Expo](https://expo.dev/)
-- React Native
-- Firebase Authentication
-- Firestore (Database)
-- React Navigation
+- [Firebase (Auth + Firestore)](https://firebase.google.com/)
+- [React Navigation](https://reactnavigation.org/)
 
 ---
 
-## 📦 Requisitos
+## 🚀 Como executar
 
-- Node.js e npm
-- Git
+### Pré-requisitos
+
+- Node.js e npm/yarn
 - Expo CLI (`npm install -g expo-cli`)
-- Conta no [Firebase Console](https://console.firebase.google.com)
-- Android Studio (ou celular com Expo Go)
+- Conta no Firebase (com projeto e credenciais criadas)
+- Arquivo `.env` com as variáveis do Firebase (veja `.env.example`)
 
----
+### Passos
 
-## 🧪 Como rodar o projeto
-
-```bash
-# 1 Instale as dependências
 npm install
+# ou
+yarn install
 
-# 2. Crie um arquivo .env com as suas credenciais do Firebase
-cp .env.example .env
+# firebase
+npm install firebase
+yarn add firebase
 
-```
+# Async-Storage
+npm install @react-native-async-storage/async-storage
 
-## 🔥 Configurar Firebase
+# execute o projeto ->
+npx expo start
 
-1. Crie um novo projeto no [Firebase](https://console.firebase.google.com/)
-2. Vá em **Authentication > Sign-in method** e ative **E-mail/senha**
-3. Vá em **Cloud Firestore** > Clique em **Criar banco de dados** (modo de teste)
-4. Copie as credenciais do projeto e cole no seu arquivo `.env`
-5. Configure regras mínimas de segurança para ambiente de desenvolvimento:
-
-```bash
-rules_version = '2';
-service cloud.firestore {
-  match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write: if request.auth != null;
-    }
-  }
-}
