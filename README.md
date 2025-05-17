@@ -1,52 +1,41 @@
 # 💸 Controle de Gastos - Aplicativo Mobile
 
-Aplicativo desenvolvido com **React Native + Firebase** para controle de despesas pessoais.
+Aplicativo mobile desenvolvido com **React Native (Expo)** e **Firebase** para controle de despesas pessoais. Ideal para registrar, visualizar e organizar seus gastos do dia a dia de forma simples e intuitiva.
 
 ---
 
 ## ✨ Funcionalidades
 
-- 📱 Autenticação com e-mail e senha (Firebase Auth)
-- ➕ Adicionar gastos com valor, descrição e data
-- 📃 Listar gastos ordenados por data
-- ✏️ Editar e excluir gastos
-- 🔍 Filtro por valor e data
-- 👤 Tela de perfil do usuário com opção de redefinir senha
-- 🎨 Interface moderna com tema escuro
+- ✅ Autenticação de usuários com e-mail e senha (Firebase Auth)
+- ✅ Cadastro e listagem de gastos com valor, descrição e data
+- ✅ Edição e exclusão de despesas
+- ✅ Filtros por valor e por data
+- ✅ Tela de perfil com dados do usuário e opção de redefinir senha
+- ✅ Interface com tema escuro ou claro (personalizável)
+- ✅ Estilo moderno inspirado no app do banco **Next**
 
 ---
 
-## 📦 Tecnologias Utilizadas
+## 📱 Tecnologias Utilizadas
 
-- [React Native](https://reactnative.dev/)
-- [Expo](https://expo.dev/)
-- [Firebase (Auth + Firestore)](https://firebase.google.com/)
+- [React Native (Expo)](https://expo.dev/)
+- [Firebase Authentication](https://firebase.google.com/products/auth)
+- [Firebase Firestore](https://firebase.google.com/products/firestore)
 - [React Navigation](https://reactnavigation.org/)
+- [Date-fns](https://date-fns.org/)
+- [@react-native-community/datetimepicker](https://github.com/react-native-datetimepicker/datetimepicker)
 
 ---
 
-## 🚀 Como executar
+## ⚙️ Configuração
 
-### Pré-requisitos
+Antes de rodar o projeto, é necessário configurar suas credenciais do Firebase, adicionando-as no .env-example e renomenado ele para .env
 
-- Node.js e npm/yarn
-- Expo CLI (`npm install -g expo-cli`)
-- Conta no Firebase (com projeto e credenciais criadas)
-- Arquivo `.env` com as variáveis do Firebase (veja `.env.example`)
-
-### Passos
-
+# Instale as dependências
 npm install
-# ou
-yarn install
 
-# firebase
-npm install firebase
-yarn add firebase
-
-# Async-Storage
-npm install @react-native-async-storage/async-storage
-
-# execute o projeto ->
+# Inicie o projeto
 npx expo start
+
+
 
